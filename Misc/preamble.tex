@@ -1,0 +1,67 @@
+%'''
+\documentclass[withoutpreface,bwprint]{format} %去掉封面与编号页，电子版提交的时候使用。
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{url}   % 网页链接
+\usepackage{subcaption} % 子标题
+\usepackage{amsmath}   % Package for math files
+\usepackage{txfonts}
+\usepackage{graphicx}  % Place figures
+\usepackage{caption}   % Place captions in tables and figures
+\usepackage{subcaption}% 
+\usepackage{placeins}  % \FloatBarrier so figures can't float beyond some point in text
+\usepackage{fullpage}  % Uses more of the page
+\usepackage{float}     % Able to make figures and tables float
+%表格自动生成
+\usepackage{subfloat}
+\usepackage{subcaption} 
+\usepackage{subfiles}  
+\usepackage{hyperref} 
+ % Ability to click on references like equations, figures, sections etc. \ref{eq:my_eq} clickable
+\usepackage{placeins}  
+% \FloatBarrier so figures can't float beyond some point in text
+\usepackage[T1]{fontenc} 
+%英文字体定义
+\usepackage{setspace}
+%''' 
+%以上为宏包的引用
+
+
+%'''
+\renewcommand {\thetable} {\thechapter{}.\arabic{table}}
+%表格根据章节自动命名
+\renewcommand {\thefigure} {\thechapter{}.\arabic{figure}}
+%图片根据章节自动命名
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+%以上三个皆控制重命名
+%Nice reference to figures
+\newcommand{\figref}[1]{\figurename~\ref{#1}} 
+
+%以下为section编号设置
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\makeatletter
+\@addtoreset{subsection}{section}
+\makeatother
+\usepackage{titlesec}
+
+%以下为section格式设置
+\titleformat{\section}{
+	\vspace{-2pt}\raggedright\Large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
+
+%以下为Title格式设置
+\makeatletter
+\renewcommand{\maketitle}{
+	\begin{flushleft}
+		\hspace*{19em}% 向右移动标题
+		{\LARGE\bfseries \@title}
+	\end{flushleft}
+}
+\makeatother
+
+%页面格式编辑
+\geometry{top=1.5cm, bottom=2cm, left=1cm, right=4cm,headheight=15pt}
+
+\title{Material}
+
